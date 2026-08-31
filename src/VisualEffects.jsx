@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
-import { Pause, Play, Sparkles } from 'lucide-react'
-import { motionAllowed } from './motionPreference'
+import { useEffect, useRef } from 'react'
 
 const storageKey='solucoes-digitais-motion'
 export const effectStyles = {
@@ -23,10 +21,7 @@ export const effectStyles = {
  education:['confetti','Formas criativas'],
 }
 
-export function MotionControl(){
- const [enabled,setEnabled]=useState(false)
- const [systemReduced,setSystemReduced]=useState(false)
- const [ready,setReady]=useState(false)
+export function MotionPreferences(){
  useEffect(()=>{
   const media=window.matchMedia('(prefers-reduced-motion: reduce)')
   const sync=()=>{
@@ -34,7 +29,6 @@ export function MotionControl(){
    try{saved=localStorage.getItem(storageKey)}catch{}
    if(saved==='on'||saved==='off')document.documentElement.dataset.motion=saved
    else delete document.documentElement.dataset.motion
-   setSystemReduced(media.matches);setEnabled(motionAllowed());setReady(true)
    window.dispatchEvent(new Event('site-motion-change'))
   }
   sync()
@@ -42,14 +36,9 @@ export function MotionControl(){
   window.addEventListener('storage',storage);media.addEventListener('change',sync)
   return()=>{window.removeEventListener('storage',storage);media.removeEventListener('change',sync)}
  },[])
- const toggle=()=>{
-  const next=!enabled
-  document.documentElement.dataset.motion=next?'on':'off'
-  try{localStorage.setItem(storageKey,next?'on':'off')}catch{}
-  setEnabled(next);window.dispatchEvent(new Event('site-motion-change'))
- }
- return <aside className={'motion-console '+(enabled?'effects-on':'effects-off')} aria-label="Controle dos efeitos visuais"><button onClick={toggle} aria-pressed={enabled} aria-label={enabled?'Pausar efeitos visuais':'Ativar efeitos visuais'}>{enabled?<Pause size={16}/>:<Play size={16}/>}<span>{!ready?'Efeitos visuais':enabled?'Pausar efeitos':'Ativar efeitos'}</span><Sparkles size={14}/></button>{ready&&!enabled&&systemReduced&&<small>Seu dispositivo reduziu as animações.<br/>Você pode ativá-las aqui.</small>}</aside>
+ return null
 }
+
 export function VisualAtmosphere({theme='agency'}){
  const ref=useRef(null)
  useEffect(()=>{

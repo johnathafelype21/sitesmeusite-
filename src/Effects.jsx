@@ -1,10 +1,9 @@
 import { motionAllowed, subscribeMotion } from './motionPreference'
 import { useEffect, useRef } from 'react'
-import { MessageCircle } from 'lucide-react'
 import { whatsapp } from './brand'
 
 export function WhatsAppButton({ model }) {
-  return <a className="whatsapp-float" href={whatsapp(model ? `Olá! Gostei do modelo ${model.name} e quero um site para meu negócio.` : undefined)} target="_blank" rel="noopener noreferrer" aria-label="Conversar com a Soluções Digitais no WhatsApp"><span>Peça seu orçamento</span><MessageCircle size={27} /><span className="wa-online" aria-hidden="true" /></a>
+  return <a className="whatsapp-float" href={whatsapp(model ? `Olá! Gostei do modelo ${model.name} e quero um site para meu negócio.` : undefined)} target="_blank" rel="noopener noreferrer" aria-label="Conversar com a Soluções Digitais no WhatsApp"><span>Peça seu orçamento</span><img src="/whatsapp.png" width="60" height="60" alt="" aria-hidden="true" /></a>
 }
 
 export function AmbientEffects() {

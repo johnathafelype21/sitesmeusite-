@@ -1,5 +1,5 @@
-.motion-console{position:fixed;left:20px;bottom:max(20px,env(safe-area-inset-bottom));z-index:95;max-width:240px;color:#dcefff;background:#08152aee;border:1px solid #37657e;border-radius:12px;box-shadow:0 8px 32px #0004;backdrop-filter:blur(15px);padding:5px}
-.motion-console button{display:flex;align-items:center;justify-content:center;gap:11px;padding:11px 14px;min-height:44px;font-size:12px;color:#cff6ff;width:100%;border-radius:7px}.motion-console button:hover{background:#173553}.motion-console small{display:block;padding:0 12px 10px;color:#a6c2d6;font-size:10px;line-height:1.6}.motion-console.effects-off button{background:linear-gradient(100deg,#155cd4,#4655d5);color:white}.motion-console button:focus-visible{outline:2px solid #61e2ff;outline-offset:3px}
+
+
 .hero,.pro-hero,.signature-section{position:relative;isolation:isolate}.signature-section>.pro-container{position:relative;z-index:1}.pro-hero-copy{position:relative;z-index:2}
 .visual-atmosphere{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;--fx:var(--accent,#21cfff);--fx2:color-mix(in srgb,var(--fx) 65%,#9973ff);contain:paint}.hero .visual-atmosphere{--fx:#00cfff;--fx2:#7253ff}
 .fx-glow{position:absolute;width:55%;height:70%;border-radius:45%;filter:blur(45px);opacity:.25;background:radial-gradient(ellipse,color-mix(in srgb,var(--fx) 70%,transparent),transparent 68%);animation:fx-drift 11s ease-in-out infinite alternate;will-change:transform}
@@ -52,7 +52,7 @@ html[data-motion="on"] .motion-ready:not(.motion-entered){opacity:.16;transform:
 html[data-motion="on"] .motion-ready.motion-entered{opacity:1;transform:none}
 html[data-motion="on"] .pro-button:before,html[data-motion="on"] .glow-cta:before{display:block;transition:left .65s}
 html[data-motion="on"] .reading-progress{display:block}
-@media(max-width:760px){.motion-console{left:12px;bottom:max(17px,env(safe-area-inset-bottom));max-width:218px}.motion-console button{font-size:11px;padding:9px 11px;gap:9px}.motion-console small{font-size:9px;padding:0 9px 7px}.fx-glow{filter:blur(25px)}.atmosphere-aurora .fx-glow{filter:blur(25px);opacity:.6}.fx-ring{width:330px;right:-35%}.ring-b{width:440px;right:-50%}.fx-particle:nth-of-type(n+6){display:none}.atmosphere-orbits .fx-ring{width:400px;right:-50%}.atmosphere-orbits .ring-b{width:550px;right:-65%}.atmosphere-waves .fx-ring{width:150%;right:-20%;top:60%;height:300px}.atmosphere-organic .fx-particle{width:35px;height:55px}}
+@media(max-width:760px){.fx-glow{filter:blur(25px)}.atmosphere-aurora .fx-glow{filter:blur(25px);opacity:.6}.fx-ring{width:330px;right:-35%}.ring-b{width:440px;right:-50%}.fx-particle:nth-of-type(n+6){display:none}.atmosphere-orbits .fx-ring{width:400px;right:-50%}.atmosphere-orbits .ring-b{width:550px;right:-65%}.atmosphere-waves .fx-ring{width:150%;right:-20%;top:60%;height:300px}.atmosphere-organic .fx-particle{width:35px;height:55px}}
 
 .visual-atmosphere[data-visible="false"] *{animation-play-state:paused!important}
 

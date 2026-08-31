@@ -1,4 +1,4 @@
-import { MotionControl, VisualAtmosphere } from './VisualEffects'
+import { MotionPreferences, VisualAtmosphere } from './VisualEffects'
 import { ConversionSection, OfferSection } from './Conversion'
 import { usePageMotion, ReadingProgress } from './Motion'
 import ProfessionalDemo from './ProfessionalDemo'
@@ -145,7 +145,7 @@ function Home() { const pageRef=useRef(null); usePageMotion(pageRef);
     <ConversionSection /><Gallery /><OfferSection /><Benefits /><Process />
     <section className="faq-section section-pad"><div className="container faq-grid"><div className="reveal"><span className="section-label"><span /> PODE PERGUNTAR</span><h2>Vamos deixar<br />tudo <em>claro.</em></h2><p>Algumas respostas antes<br />do nosso primeiro papo.</p></div><FAQ /></div></section>
     <section className="contact-section" id="contato"><div className="container"><div className="contact-callout reveal"><span className="eyebrow"><span className="status-dot" /> O PRÓXIMO PROJETO PODE SER O SEU</span><h2>Seu cliente precisa entender<br />por que escolher <em>você.</em></h2><p>Conte o que você faz. Vamos pensar em um site que apresente seu valor, responda às dúvidas do seu público e facilite o contato.</p><a className="button button-dark" href="#seu-projeto">Quero uma proposta para meu negócio <ArrowUpRight size={20} /></a><span className="contact-spark spark-one" aria-hidden="true">✳</span><span className="contact-spark spark-two" aria-hidden="true">✳</span></div><div id="seu-projeto"><BriefingForm /></div></div></section>
-  </main><Footer /><WhatsAppButton /><MotionControl /></div>
+  </main><Footer /><WhatsAppButton /><MotionPreferences /></div>
 }
 function NotFound() { return <div className="not-found"><Brand /><span>404</span><h1>Esse endereço ainda<br />não virou um site.</h1><p>Mas o seu próximo modelo está logo ali.</p><a className="button button-dark" href="/#modelos">Conhecer os modelos <ArrowRight size={18} /></a></div> }
 export default function App({ path = typeof window === 'undefined' ? '/' : window.location.pathname }) {
