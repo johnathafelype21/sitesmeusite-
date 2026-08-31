@@ -22,3 +22,11 @@ O build gera HTML e metadados para a página inicial, 16 modelos e uma página 4
 O formulário comercial prepara uma mensagem local. O visitante revisa o resumo, abre o WhatsApp e confirma o envio no aplicativo. Não há banco de dados nem envio automático. Os formulários dos modelos são apenas simulações, explicitamente identificadas, sem coleta de dados pessoais. Não representam atendimento médico, jurídico, agendamento real, disponibilidade de imóveis ou preços.
 
 Referências de efeitos: https://21st.dev/@dhileepkumargm/components/spotlight-background e https://21st.dev/@jorgevarelarz/components/laser-focus. Implementação própria e leve, sem dependência do código desses componentes.
+
+## Revisão de identidade e conversão
+
+A logo é exibida integralmente com object-fit: contain, sem ampliação ou recorte. CNPJ informado pelo proprietário: 48.998.191/0001-59 (não representa verificação cadastral). A identificação nos modelos pertence à agência, não às empresas fictícias.
+
+Cada modelo inclui uma experiência própria em src/SignatureExperience.jsx: jornada odontológica, cenário jurídico, acolhimento terapêutico, prioridades do imóvel, materiais arquitetônicos, estilo de beleza, pessoas à mesa, rotina de treino ilustrativa, fases do pet, coleções de fotos, momento empresarial, direção de tatuagem, rotina alimentar, seleção de barbearia, motivo de atendimento automotivo e trilhas educacionais. Textos de processo específicos em src/journeys.js.
+
+src/Conversion.jsx apresenta benefícios e formatos de projeto, orçamento sem compromisso e escopo alinhado antes de começar. Os efeitos em src/Motion.jsx e src/signatures.css incluem revelação de títulos, entrada no scroll, progresso de leitura, brilho nos botões e efeitos visuais específicos. Implementação própria: prévias públicas do 21st.dev consultadas; o código de componentes que exigiam login não foi acessado nem copiado. Referência adicional: https://21st.dev/@theutkarshmail/components/slide-glow-button.
