@@ -1,9 +1,56 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/"
+      "source": "/modelos/lumina-odontologia",
+      "destination": "/modelos/clinica-oralis",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/advocacia-almeida-vasconcelos",
+      "destination": "/modelos/albuquerque-rocha",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/prime-imoveis-urbanos",
+      "destination": "/modelos/prime-urban",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/espaco-essencia-terapias",
+      "destination": "/modelos/essencia-terapias",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/brasa-e-sabor",
+      "destination": "/modelos/brasa-nobre",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/bellevie-estetica",
+      "destination": "/modelos/lumiere-hair",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/atlas-consultoria",
+      "destination": "/modelos/nova-gestao",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/clinica-vitae",
+      "destination": "/modelos/clinica-oralis",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/nova-central-utilidades",
+      "destination": "/modelos/nova-gestao",
+      "permanent": true
+    },
+    {
+      "source": "/modelos/elite-solucoes-tecnicas",
+      "destination": "/modelos/nova-gestao",
+      "permanent": true
     }
   ]
 }
