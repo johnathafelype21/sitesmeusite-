@@ -1,0 +1,58 @@
+.motion-console{position:fixed;left:20px;bottom:max(20px,env(safe-area-inset-bottom));z-index:95;max-width:240px;color:#dcefff;background:#08152aee;border:1px solid #37657e;border-radius:12px;box-shadow:0 8px 32px #0004;backdrop-filter:blur(15px);padding:5px}
+.motion-console button{display:flex;align-items:center;justify-content:center;gap:11px;padding:11px 14px;min-height:44px;font-size:12px;color:#cff6ff;width:100%;border-radius:7px}.motion-console button:hover{background:#173553}.motion-console small{display:block;padding:0 12px 10px;color:#a6c2d6;font-size:10px;line-height:1.6}.motion-console.effects-off button{background:linear-gradient(100deg,#155cd4,#4655d5);color:white}.motion-console button:focus-visible{outline:2px solid #61e2ff;outline-offset:3px}
+.hero,.pro-hero,.signature-section{position:relative;isolation:isolate}.signature-section>.pro-container{position:relative;z-index:1}.pro-hero-copy{position:relative;z-index:2}
+.visual-atmosphere{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;--fx:var(--accent,#21cfff);--fx2:color-mix(in srgb,var(--fx) 65%,#9973ff);contain:paint}.hero .visual-atmosphere{--fx:#00cfff;--fx2:#7253ff}
+.fx-glow{position:absolute;width:55%;height:70%;border-radius:45%;filter:blur(45px);opacity:.25;background:radial-gradient(ellipse,color-mix(in srgb,var(--fx) 70%,transparent),transparent 68%);animation:fx-drift 11s ease-in-out infinite alternate;will-change:transform}
+.glow-a{right:-10%;top:-10%}.glow-b{left:0;bottom:-40%;background:radial-gradient(ellipse,var(--fx2),transparent 70%);animation-delay:-5s}
+.fx-grid{position:absolute;inset:0;opacity:.17;background-image:linear-gradient(color-mix(in srgb,var(--fx) 55%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--fx) 55%,transparent) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(90deg,transparent,#000);animation:fx-grid-flow 20s linear infinite}
+.fx-particle{position:absolute;left:var(--px);top:var(--py);width:5px;height:5px;border-radius:50%;background:var(--fx);opacity:.45;box-shadow:0 0 16px color-mix(in srgb,var(--fx) 60%,transparent);animation:fx-particle-float 9s ease-in-out infinite alternate;animation-delay:var(--delay)}
+.fx-ring{position:absolute;right:3%;top:10%;width:450px;aspect-ratio:1;border:1px solid color-mix(in srgb,var(--fx) 40%,transparent);border-radius:50%;animation:fx-orbit 22s linear infinite}
+.fx-ring:before{content:"";position:absolute;top:15%;left:13%;width:11px;height:11px;border-radius:50%;background:var(--fx);box-shadow:0 0 25px var(--fx)}
+.ring-b{width:600px;right:-2%;top:2%;animation-direction:reverse;animation-duration:30s;opacity:.55}
+.fx-scan{position:absolute;width:40%;height:1px;left:60%;top:0;background:linear-gradient(90deg,transparent,var(--fx),transparent);box-shadow:0 0 28px var(--fx);animation:fx-scan 8s ease-in-out infinite;opacity:.4}
+.atmosphere-aurora .fx-glow{opacity:.7;filter:blur(35px);width:75%;height:100%}.atmosphere-aurora .fx-ring{display:none}.atmosphere-aurora .fx-scan{width:2px;height:85%;left:75%;transform:rotate(25deg);animation:fx-beam 9s ease-in-out infinite}.atmosphere-aurora .fx-particle{width:3px;height:45px;border-radius:0;transform:rotate(25deg);animation:fx-rain 8s linear infinite}
+.atmosphere-orbits .fx-grid,.atmosphere-orbits .fx-scan{display:none}.atmosphere-orbits .fx-ring{right:-10%;width:650px;top:-20%;border-width:2px}.atmosphere-orbits .ring-b{width:820px;right:-18%;top:-30%}
+.atmosphere-pillars .fx-ring,.atmosphere-pillars .fx-grid{display:none}.atmosphere-pillars .fx-particle{width:1px;height:70%;top:0;border-radius:0;opacity:.25;animation:fx-column 9s ease-in-out infinite;animation-delay:var(--delay);background:linear-gradient(transparent,var(--fx),transparent)}.atmosphere-pillars .fx-scan{width:100%;left:0}
+.atmosphere-blueprint .fx-ring,.atmosphere-blueprint .fx-glow{display:none}.atmosphere-blueprint .fx-grid{opacity:.24;background-size:45px 45px;mask-image:linear-gradient(90deg,transparent,#000)}.atmosphere-blueprint .fx-particle{width:35px;height:35px;background:transparent;border:1px solid var(--fx);border-radius:0;box-shadow:none;animation:fx-square 15s linear infinite;animation-delay:var(--delay)}
+.atmosphere-waves .fx-particle,.atmosphere-waves .fx-grid,.atmosphere-waves .fx-scan{display:none}.atmosphere-waves .fx-ring{width:120%;height:320px;aspect-ratio:auto;right:-15%;top:55%;border-radius:50%;animation:fx-wave 13s ease-in-out infinite alternate;border-width:2px;opacity:.35}.atmosphere-waves .ring-b{top:65%;animation-delay:-6s}.atmosphere-waves .fx-ring:before{display:none}
+.atmosphere-silk .fx-grid,.atmosphere-silk .fx-ring,.atmosphere-silk .fx-scan{display:none}.atmosphere-silk .fx-glow{width:100%;height:100%;opacity:.5;filter:blur(25px);background:conic-gradient(from 90deg,transparent,color-mix(in srgb,var(--fx) 45%,transparent),transparent 70%);animation:fx-silk 15s ease-in-out infinite alternate}.atmosphere-silk .fx-particle{width:2px;height:2px}
+.atmosphere-embers{--fx:#ff9b46}.atmosphere-embers .fx-ring,.atmosphere-embers .fx-grid,.atmosphere-embers .fx-scan{display:none}.atmosphere-embers .fx-particle{width:3px;height:9px;top:auto;bottom:-15px;animation:fx-ember 9s linear infinite;animation-delay:var(--delay);box-shadow:0 0 16px #ffa443}
+.atmosphere-speed .fx-grid,.atmosphere-speed .fx-ring{display:none}.atmosphere-speed .fx-particle{width:120px;height:2px;border-radius:0;left:-130px;animation:fx-speed 6s ease-in-out infinite;animation-delay:var(--delay);background:linear-gradient(90deg,transparent,var(--fx));opacity:.35}
+.atmosphere-bubbles .fx-grid,.atmosphere-bubbles .fx-scan,.atmosphere-bubbles .fx-ring{display:none}.atmosphere-bubbles .fx-particle{width:calc(22px + var(--n)*5px);height:calc(22px + var(--n)*5px);background:color-mix(in srgb,var(--fx) 6%,transparent);border:1px solid color-mix(in srgb,var(--fx) 25%,transparent);box-shadow:none;opacity:.7;animation-duration:12s}
+.atmosphere-film .fx-ring,.atmosphere-film .fx-glow,.atmosphere-film .fx-scan{display:none}.atmosphere-film .fx-grid{inset:12px;mask-image:none;background:none;border:1px solid color-mix(in srgb,var(--fx) 30%,transparent);animation:none}.atmosphere-film .fx-particle{width:22px;height:2px;left:auto;right:10px;border-radius:0;animation:fx-frame 10s ease-in-out infinite;animation-delay:var(--delay)}
+.atmosphere-grid .fx-ring{display:none}.atmosphere-grid .fx-particle{width:10px;height:10px;border-radius:2px;animation:fx-node 8s ease-in-out infinite;animation-delay:var(--delay)}.atmosphere-grid .fx-scan{width:100%;left:0}
+.atmosphere-scan .fx-ring{display:none}.atmosphere-scan .fx-scan{height:90px;width:100%;left:0;background:linear-gradient(transparent,color-mix(in srgb,var(--fx) 10%,transparent),transparent);border-bottom:1px solid var(--fx);box-shadow:none;animation-duration:10s}.atmosphere-scan .fx-particle{height:2px;width:50px;border-radius:0;animation:fx-node 7s ease infinite}
+.atmosphere-organic .fx-ring,.atmosphere-organic .fx-grid,.atmosphere-organic .fx-scan{display:none}.atmosphere-organic .fx-particle{width:55px;height:90px;border-radius:100% 0 100% 0;background:color-mix(in srgb,var(--fx) 8%,transparent);border:1px solid color-mix(in srgb,var(--fx) 16%,transparent);box-shadow:none;opacity:.6;animation:fx-leaf 18s ease-in-out infinite alternate;animation-delay:var(--delay)}
+.atmosphere-stripes .fx-ring,.atmosphere-stripes .fx-glow,.atmosphere-stripes .fx-scan,.atmosphere-stripes .fx-particle{display:none}.atmosphere-stripes .fx-grid{opacity:.12;background:repeating-linear-gradient(115deg,transparent 0 70px,var(--fx) 71px 73px,transparent 74px 145px);background-size:320px 320px;animation:fx-stripe 18s linear infinite}
+.atmosphere-confetti .fx-grid,.atmosphere-confetti .fx-scan,.atmosphere-confetti .fx-ring{display:none}.atmosphere-confetti .fx-particle{width:24px;height:24px;background:color-mix(in srgb,var(--fx) 20%,transparent);box-shadow:none;opacity:.6;animation:fx-square 14s linear infinite;animation-delay:var(--delay)}.atmosphere-confetti .fx-particle:nth-of-type(even){border-radius:0;background:#eac45b55}.atmosphere-confetti .fx-particle:nth-of-type(3n){border-radius:4px;background:#66c1a355}
+@keyframes fx-drift{0%{transform:translate(-8%,-5%) rotate(-10deg)}100%{transform:translate(15%,12%) rotate(15deg)}}
+@keyframes fx-grid-flow{to{background-position:72px 72px}}
+@keyframes fx-particle-float{to{transform:translate(30px,-65px);opacity:.15}}
+@keyframes fx-orbit{to{transform:rotate(360deg)}}
+@keyframes fx-scan{0%,100%{top:5%;opacity:.1}50%{top:95%;opacity:.5}}
+@keyframes fx-beam{0%,100%{left:62%;opacity:.2}50%{left:92%;opacity:.8}}
+@keyframes fx-rain{0%{translate:0 -120px;opacity:0}25%{opacity:.5}100%{translate:-150px 350px;opacity:0}}
+@keyframes fx-column{0%,100%{translate:0 -25%;opacity:.1}50%{translate:0 25%;opacity:.45}}
+@keyframes fx-square{0%{transform:translateY(20px) rotate(0)}50%{transform:translateY(-40px) rotate(180deg)}100%{transform:translateY(20px) rotate(360deg)}}
+@keyframes fx-wave{to{transform:translateY(-80px) rotate(8deg) scale(1.15)}}
+@keyframes fx-silk{to{transform:translate(-20%,15%) rotate(25deg)}}
+@keyframes fx-ember{0%{transform:translate(0,0);opacity:0}15%{opacity:.8}100%{transform:translate(80px,-650px);opacity:0}}
+@keyframes fx-speed{0%{left:-130px;opacity:0}20%{opacity:.45}65%,100%{left:110%;opacity:0}}
+@keyframes fx-frame{50%{transform:translateY(-24px);opacity:.15}}
+@keyframes fx-node{0%,100%{opacity:.1;transform:scale(.8)}50%{opacity:.65;transform:scale(1.2)}}
+@keyframes fx-leaf{to{transform:translate(25px,-50px) rotate(35deg)}}
+@keyframes fx-stripe{to{background-position:320px 0}}
+@media(hover:hover) and (pointer:fine){.pro-gallery-item:hover img{transform:scale(1.025)}.pro-gallery-item img{transition:transform .6s}.offer-grid article:hover,.conversion-grid article:hover{border-color:#4a94ce;box-shadow:0 0 35px #148cfe18}.signature-stage:hover{box-shadow:0 15px 45px color-mix(in srgb,var(--accent) 12%,transparent)}}
+html[data-motion="off"] *,html[data-motion="off"] *:before,html[data-motion="off"] *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html[data-motion="off"] .motion-ready{opacity:1;transform:none}
+html[data-motion="off"] .reading-progress{display:none}
+@media(prefers-reduced-motion:reduce){html:not([data-motion="on"]) .visual-atmosphere *{animation:none!important}html:not([data-motion="on"]) .fx-particle{opacity:.2}}
+html[data-motion="on"] .motion-ready{transition:opacity .75s ease var(--reveal-delay,0ms),transform .75s ease var(--reveal-delay,0ms)}
+html[data-motion="on"] .motion-ready:not(.motion-entered){opacity:.16;transform:translateY(24px)}
+html[data-motion="on"] .motion-ready.motion-entered{opacity:1;transform:none}
+html[data-motion="on"] .pro-button:before,html[data-motion="on"] .glow-cta:before{display:block;transition:left .65s}
+html[data-motion="on"] .reading-progress{display:block}
+@media(max-width:760px){.motion-console{left:12px;bottom:max(17px,env(safe-area-inset-bottom));max-width:218px}.motion-console button{font-size:11px;padding:9px 11px;gap:9px}.motion-console small{font-size:9px;padding:0 9px 7px}.fx-glow{filter:blur(25px)}.atmosphere-aurora .fx-glow{filter:blur(25px);opacity:.6}.fx-ring{width:330px;right:-35%}.ring-b{width:440px;right:-50%}.fx-particle:nth-of-type(n+6){display:none}.atmosphere-orbits .fx-ring{width:400px;right:-50%}.atmosphere-orbits .ring-b{width:550px;right:-65%}.atmosphere-waves .fx-ring{width:150%;right:-20%;top:60%;height:300px}.atmosphere-organic .fx-particle{width:35px;height:55px}}
+
+.visual-atmosphere[data-visible="false"] *{animation-play-state:paused!important}
+

@@ -14,3 +14,5 @@ else ReactDOM.createRoot(root).render(app)
 import './professional.css'
 
 import './signatures.css'
+
+import './visual-effects.css'
