@@ -1,5 +1,6 @@
+import { businessModels } from './business-models.js'
 import { moreModels } from './more-models.js'
-export const categories = ['Todos', 'Odontologia', 'Advocacia', 'Imobiliário', 'Saúde & bem-estar', 'Criativos', 'Negócios']
+export const categories = ['Todos', 'Novos modelos', 'Construção & energia', 'Turismo & eventos', 'Tecnologia & logística', 'Comércio & serviços', 'Odontologia', 'Advocacia', 'Imobiliário', 'Saúde & bem-estar', 'Criativos', 'Negócios']
 
 export const models = [
   { slug: 'clinica-oralis', brand: 'oralis', name: 'Clínica Oralis', category: 'Odontologia', profession: 'Dentistas', theme: 'dental', kicker: 'ODONTOLOGIA COM PROPÓSITO', headline: 'Seu melhor sorriso começa aqui.', description: 'Cuidado, tecnologia e um novo motivo para sorrir. Uma experiência odontológica pensada em você.', image: 'dentista', photo: '1667133295308-9ef24f71952e', alt: 'Dentista sorrindo em um consultório claro e moderno', tags: ['Clean', 'Acolhedor', 'Saúde'], cta: 'Conheça os tratamentos', services: [['Odontologia preventiva', 'Acompanhamento e orientação para cuidar da saúde do seu sorriso.'], ['Estética do sorriso', 'Planejamento individualizado com atenção à naturalidade.'], ['Reabilitação oral', 'Cuidado integrado para recuperar conforto e função.']], detail: 'Um espaço para se sentir bem, desde a primeira visita.', about: 'Escuta atenta, ambiente acolhedor e explicações claras em cada etapa. Este conceito apresenta uma clínica que coloca a experiência de cada pessoa no centro do cuidado.' },
@@ -16,7 +17,7 @@ export const models = [
   { slug: 'ink-prime', brand: 'INK PRIME', name: 'Ink Prime Studio', category: 'Criativos', profession: 'Tatuadores', theme: 'tattoo', kicker: 'ARTE QUE VIVE COM VOCÊ', headline: 'Sua história. Traço por traço.', description: 'Criação autoral, expressão e identidade. Uma experiência artística que começa na conversa.', image: 'tatuagem', photo: '1513078094721-e7b6e0394a6a', alt: 'Artista trabalhando em uma tatuagem dentro de um estúdio', tags: ['Autoral', 'Urbano', 'Dark'], cta: 'Explore os estilos', services: [['Fine line', 'Traços delicados em composições cheias de significado.'], ['Blackwork', 'Contrastes e formas em projetos de presença marcante.'], ['Projetos autorais', 'Uma criação desenvolvida a partir da sua ideia.']], detail: 'Arte com identidade, do primeiro esboço ao último traço.', about: 'Um estúdio fictício de presença forte e abordagem autoral. Os estilos e o processo criativo ganham espaço em uma navegação simples, visual e direta.' },
 ]
 
-models.push(...moreModels)
+models.push(...moreModels, ...businessModels)
 export const imagePath = (model, small = false) => `/images/${model.image}${small ? '-small' : ''}.webp`
 export const findModel = slug => models.find(model => model.slug === slug)
 export const legacySlugs = { 'lumina-odontologia': 'clinica-oralis', 'advocacia-almeida-vasconcelos': 'albuquerque-rocha', 'prime-imoveis-urbanos': 'prime-urban', 'espaco-essencia-terapias': 'essencia-terapias', 'brasa-e-sabor': 'brasa-nobre', 'bellevie-estetica': 'lumiere-hair', 'atlas-consultoria': 'nova-gestao', 'clinica-vitae': 'clinica-oralis', 'nova-central-utilidades': 'nova-gestao', 'elite-solucoes-tecnicas': 'nova-gestao' }

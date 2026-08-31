@@ -19,7 +19,7 @@ const routes = [{ path: '/', model: null }, ...models.map(model => ({ path: `/mo
 try {
   for (const { path, model } of routes) {
     const title = model ? `${model.name} — Modelo para ${model.profession} | Soluções Digitais` : path === '/404' ? 'Página não encontrada | Soluções Digitais' : 'Soluções Digitais — Sites profissionais para valorizar seu negócio'
-    const description = model ? `Modelo demonstrativo para ${model.profession.toLowerCase()}. ${model.description}` : 'Sites personalizados para dentistas, advogados, corretores, terapeutas e outros profissionais. Explore 16 modelos com identidade própria, imagens e design responsivo.'
+    const description = model ? `Modelo demonstrativo para ${model.profession.toLowerCase()}. ${model.description}` : `Sites personalizados para profissionais, empresas e negócios de diferentes segmentos. Explore ${models.length} modelos com identidade própria, imagens e design responsivo.`
     const ogImage = model ? imagePath(model) : '/og.png'
     const head = `<title>${escaped(title)}</title>\n<meta name="description" content="${escaped(description)}">\n<meta name="robots" content="${path === '/404' ? 'noindex' : 'index, follow'}">\n<link rel="canonical" href="__SITE_ORIGIN__${path === '/404' ? '/' : path}">\n<meta property="og:site_name" content="Soluções Digitais">\n<meta property="og:locale" content="pt_BR">\n<meta property="og:type" content="website">\n<meta property="og:title" content="${escaped(title)}">\n<meta property="og:description" content="${escaped(description)}">\n<meta property="og:url" content="__SITE_ORIGIN__${path}">\n<meta property="og:image" content="__SITE_ORIGIN__${ogImage}">\n<meta property="og:image:alt" content="${escaped(model?.alt || 'Soluções Digitais — Sites profissionais para valorizar seu negócio')}">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:title" content="${escaped(title)}">\n<meta name="twitter:description" content="${escaped(description)}">\n<meta name="twitter:image" content="__SITE_ORIGIN__${ogImage}">`
     const markup = renderToString(createElement(App, { path }))
@@ -34,7 +34,7 @@ try {
 // Keep the Vite/Vercel static output. Sites gets a small ESM Worker and the same assets.
 await mkdir(resolve(dist, 'server'), { recursive: true })
 await mkdir(resolve(dist, 'client'), { recursive: true })
-for (const asset of ['assets', 'images', 'og.png', 'logo.jpg', 'favicon.svg']) await cp(resolve(dist, asset), resolve(dist, 'client', asset), { recursive: true })
+for (const asset of ['assets', 'images', 'og.png', 'logo.jpg', 'whatsapp.png', 'favicon.svg']) await cp(resolve(dist, asset), resolve(dist, 'client', asset), { recursive: true })
 const workerTemplate = await readFile('src/worker.template.js', 'utf8')
 const worker = `const pages = ${JSON.stringify(pages)};\nconst legacySlugs = ${JSON.stringify(legacySlugs)};\n${workerTemplate}`
 await writeFile(resolve(dist, 'server/index.js'), worker)

@@ -1,3 +1,4 @@
+import BusinessDemo from './BusinessDemo'
 import { MotionPreferences, VisualAtmosphere } from './VisualEffects'
 import { ConversionSection, OfferSection } from './Conversion'
 import { usePageMotion, ReadingProgress } from './Motion'
@@ -27,7 +28,7 @@ export function Photo({ model, small = false, eager = false, className = '' }) {
 }
 function ModelPreview({ model, hero = false }) {
   const Icon = iconMap[model.theme] || Sparkles
-  return <div className={`model-preview theme-${model.theme}`}>
+  return <div className={`model-preview theme-${model.theme} ${model.business ? 'business-preview' : ''}`}>
     <div className="browser-chrome"><span><i /><i /><i /></span><span>{model.slug.replaceAll('-', '')}.com.br</span><ArrowUpRight size={9} /></div>
     <div className="preview-page"><div className="preview-nav"><b>{model.brand}</b><span>Sobre <i /> Serviços <i /> Contato</span><span className="preview-nav-cta">Vamos conversar ↗</span></div>
       <div className="preview-hero"><div className="preview-copy"><small>{model.kicker}</small><strong>{model.headline}</strong><p>{model.description}</p><span className="preview-button">{model.cta}<ArrowUpRight size={11} /></span></div><Photo model={model} small={!hero} eager={hero} /><div className="preview-photo-shade" /></div>
@@ -68,16 +69,17 @@ function Gallery() {
   useSpotlight(galleryRef)
   const [category, setCategory] = useState('Todos')
   const [expanded, setExpanded] = useState(false)
-  const matches = models.filter(model => category === 'Todos' || model.category === category)
+  const matches = models.filter(model => category === 'Todos' || (category === 'Novos modelos' ? model.business : model.category === category))
   const visible = category === 'Todos' && !expanded ? matches.slice(0, 8) : matches
   return <section className="gallery-section section-pad" id="modelos" ref={galleryRef}><div className="container">
     <div className="section-top reveal"><div><span className="section-label"><span /> FEITO PARA A SUA PROFISSÃO</span><h2>Seu próximo site.<br /> Com a sua <em>personalidade.</em></h2></div><p>Explore experiências completas, com estruturas e interações próprias. Escolha uma referência e peça uma proposta para a sua marca.</p></div>
+    <div className="new-model-notice"><div><strong>8 novos modelos. Mais possibilidades para o seu negócio.</strong><p>Construção, energia solar, hotelaria, eventos, tecnologia, logística, moda e limpeza.</p></div><button onClick={() => setCategory('Novos modelos')}>Ver os novos modelos <ArrowUpRight size={18}/></button></div>
     <div className="gallery-toolbar"><div className="category-filters" role="group" aria-label="Filtrar modelos por profissão">{categories.map(item => <button key={item} className={item === category ? 'active' : ''} aria-pressed={item === category} onClick={() => setCategory(item)}>{item}{item === 'Todos' && <span>{models.length}</span>}</button>)}</div><span className="filter-caption">ENCONTRE O SEU ESTILO</span></div>
     <p className="sr-only" role="status">{matches.length} modelos em {category}. Exibindo {visible.length}.</p>
     <div className="portfolio-grid">{visible.map((model, index) => <article className={`project-card spotlight-card card-${model.theme}`} key={model.slug} style={{ '--card-index': index }}>
       <a href={`/modelos/${model.slug}`} className="project-visual" aria-label={`Explorar modelo ${model.name}`}><span className="project-type">{model.profession}</span><div className="project-browser"><ModelPreview model={model} /></div><span className="project-open"><span>Abrir site completo</span><ArrowUpRight size={22} /></span></a>
       <div className="project-info"><div><span className="project-category">{model.category}</span><h3><a href={`/modelos/${model.slug}`}>{model.name}</a></h3></div><a className="project-arrow" href={`/modelos/${model.slug}`} aria-label={`Abrir ${model.name}`}><ArrowUpRight size={21} /></a></div>
-      <div className="project-tags">{model.tags.map(tag => <span key={tag}>{tag}</span>)}<span className="responsive-tag"><Smartphone size={12} /> Responsivo</span></div>
+      <div className="project-tags">{model.business && <span className="new-model-label">NOVO</span>}{model.tags.map(tag => <span key={tag}>{tag}</span>)}<span className="responsive-tag"><Smartphone size={12} /> Responsivo</span></div>
     </article>)}</div>
     {category === 'Todos' && <div className="gallery-more"><button className="button button-outline" onClick={() => setExpanded(!expanded)}>{expanded ? 'Mostrar menos modelos' : `Explore os ${models.length} modelos`}{expanded ? <Minus size={17} /> : <Plus size={17} />}</button></div>}
     <p className="demo-note">Projetos conceituais e marcas fictícias, criados para inspirar o seu próximo site.</p>
@@ -152,7 +154,7 @@ export default function App({ path = typeof window === 'undefined' ? '/' : windo
   const normalized = path.replace(/\/$/, '') || '/'
   const slug = normalized.startsWith('/modelos/') ? normalized.slice(9) : ''
   const model = findModel(legacySlugs[slug] || slug)
-  if (model) return <ProfessionalDemo model={model} />
+  if (model) return model.business ? <BusinessDemo model={model} /> : <ProfessionalDemo model={model} />
   if (normalized !== '/') return <NotFound />
   return <Home />
 }

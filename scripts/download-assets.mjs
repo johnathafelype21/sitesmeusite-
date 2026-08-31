@@ -1,9 +1,10 @@
+import { businessPhotos } from '../src/business-models.js'
 import { mkdir, writeFile, access } from 'node:fs/promises'
 import { models } from '../src/models.js'
 import { extraPhotos } from '../src/more-models.js'
 
 await mkdir(new URL('../public/images/', import.meta.url), { recursive: true })
-for (const model of [...models, ...extraPhotos]) {
+for (const model of [...models, ...extraPhotos, ...businessPhotos]) {
   await Promise.all([480, 1200].map(async width => {
     const destination = new URL(`../public/images/${model.image}${width === 480 ? '-small' : ''}.webp`, import.meta.url)
     try { await access(destination); return } catch {}
