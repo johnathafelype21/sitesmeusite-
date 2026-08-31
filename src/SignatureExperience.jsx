@@ -1,3 +1,4 @@
+import { VisualAtmosphere } from './VisualEffects'
 import { useState } from 'react'
 import { ArrowUpRight, ArrowRight, Check, Plus, Minus, ChevronLeft, ChevronRight, Camera, Heart, Sparkles, Scissors, Wrench, BookOpen, Leaf, ShieldCheck, Smile, MapPin } from 'lucide-react'
 import { BreathingOrb } from './Motion'
@@ -63,6 +64,6 @@ export default function SignatureExperience({model,Image}){
  case 'automotive':content=<div className="auto-diagnostic"><div><Wrench size={45}/><Picks items={data} value={active} onChange={setActive} label="Motivo do contato"/></div><div className="signature-stage"><span className="pro-kicker">PROTOCOLO DE ATENDIMENTO / 0{active+1}</span><h3>{data[active][1]}</h3>{data[active][2].map((t,i)=><div className="diagnostic-step" key={t}><span>0{i+1}</span><strong>{t}</strong><ArrowRight size={18}/></div>)}<p>Este exemplo não realiza diagnóstico. A avaliação do veículo é feita pela equipe responsável.</p><Next>Conversar sobre meu veículo</Next></div></div>;break
  case 'education':content=<div className="learning-map"><Picks items={data} value={active} onChange={setActive} label="Trilha de aprendizagem"/><div className="signature-stage"><BookOpen size={38}/><h3>{data[active][1]}</h3><div className="learning-nodes">{data[active][2].map((t,i)=><article key={t}><span>{i+1}</span><h4>{t}</h4><small>{['EXPLORAR','EXPERIMENTAR','COMPARTILHAR'][i]}</small></article>)}</div><Next>Conhecer essa trilha</Next></div></div>;break
  }
- return <section className={'signature-section signature-'+model.theme+' pro-section'} id="experiencia-exclusiva"><div className="pro-container"><div className="signature-heading"><span className="pro-kicker">{meta.label}</span><h2>{meta.title}</h2><p>{meta.intro}</p></div>{content}<p className="signature-disclaimer">Experiência demonstrativa · Personalizável para a sua marca</p></div></section>
+ return <section className={'signature-section signature-'+model.theme+' pro-section'} id="experiencia-exclusiva"><VisualAtmosphere theme={model.theme}/><div className="pro-container"><div className="signature-heading"><span className="pro-kicker">{meta.label}</span><h2>{meta.title}</h2><p>{meta.intro}</p></div>{content}<p className="signature-disclaimer">Experiência demonstrativa · Personalizável para a sua marca</p></div></section>
 }
 

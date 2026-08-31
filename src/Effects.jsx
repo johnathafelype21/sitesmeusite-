@@ -1,3 +1,4 @@
+import { motionAllowed, subscribeMotion } from './motionPreference'
 import { useEffect, useRef } from 'react'
 import { MessageCircle } from 'lucide-react'
 import { whatsapp } from './brand'
@@ -14,15 +15,15 @@ export function AmbientEffects() {
     let frame = 0
     const update = () => {
       frame = 0
-      if (motion.matches || !desktop.matches) return
+      if (!motionAllowed() || !desktop.matches) return
       const offset = Math.min(window.scrollY * 0.13, 90)
       ref.current?.style.setProperty('--parallax', `${offset}px`)
     }
     const scroll = () => { if (!frame) frame = requestAnimationFrame(update) }
     const reset = () => { ref.current?.style.setProperty('--parallax', '0px'); scroll() }
     window.addEventListener('scroll', scroll, { passive: true })
-    motion.addEventListener('change', reset); desktop.addEventListener('change', reset)
-    return () => { window.removeEventListener('scroll', scroll); motion.removeEventListener('change', reset); desktop.removeEventListener('change', reset); cancelAnimationFrame(frame) }
+    const unsubscribeMotion=subscribeMotion(reset); desktop.addEventListener('change', reset)
+    return () => { window.removeEventListener('scroll', scroll); unsubscribeMotion(); desktop.removeEventListener('change', reset); cancelAnimationFrame(frame) }
   }, [])
   return <div ref={ref} className="ambient-effects" aria-hidden="true"><div className="ambient-orb orb-cyan" /><div className="ambient-orb orb-blue" /><div className="ambient-orb orb-violet" /><div className="ambient-grid" /><div className="beam beam-one" /><div className="beam beam-two" /></div>
 }
@@ -33,7 +34,7 @@ export function useSpotlight(ref) {
     if (!root) return
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)')
     const pointer = event => {
-      if (reduced.matches || event.pointerType !== 'mouse') return
+      if (!motionAllowed() || event.pointerType !== 'mouse') return
       const card = event.target.closest('.spotlight-card')
       if (!card || !root.contains(card)) return
       const rect = card.getBoundingClientRect()

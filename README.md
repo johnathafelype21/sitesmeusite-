@@ -30,3 +30,11 @@ A logo é exibida integralmente com object-fit: contain, sem ampliação ou reco
 Cada modelo inclui uma experiência própria em src/SignatureExperience.jsx: jornada odontológica, cenário jurídico, acolhimento terapêutico, prioridades do imóvel, materiais arquitetônicos, estilo de beleza, pessoas à mesa, rotina de treino ilustrativa, fases do pet, coleções de fotos, momento empresarial, direção de tatuagem, rotina alimentar, seleção de barbearia, motivo de atendimento automotivo e trilhas educacionais. Textos de processo específicos em src/journeys.js.
 
 src/Conversion.jsx apresenta benefícios e formatos de projeto, orçamento sem compromisso e escopo alinhado antes de começar. Os efeitos em src/Motion.jsx e src/signatures.css incluem revelação de títulos, entrada no scroll, progresso de leitura, brilho nos botões e efeitos visuais específicos. Implementação própria: prévias públicas do 21st.dev consultadas; o código de componentes que exigiam login não foi acessado nem copiado. Referência adicional: https://21st.dev/@theutkarshmail/components/slide-glow-button.
+
+## Controle explícito de movimento
+
+A ausência de animações no navegador de revisão foi reproduzida com `prefers-reduced-motion: reduce`. O site respeita essa preferência por padrão e agora explica o motivo no controle “Ativar efeitos”. Uma escolha explícita ativa ou pausa os efeitos apenas neste site, persiste localmente entre páginas e sincroniza as abas. Não altera a configuração do sistema.
+
+As 17 páginas têm fundos animados visíveis, e cada modelo recebe uma direção de efeito: órbitas, linhas douradas, blueprint, ondas, seda, brasas, velocidade, bolhas, filme, grade, scanner, formas orgânicas, faixas e formas criativas. Os efeitos decorativos não interceptam cliques, são simplificados no celular e pausam fora da área visível. Permanecem implementações próprias inspiradas nas referências públicas do 21st.dev, não código de componentes restritos por login.
+
+Verificação desta revisão: 51 combinações de página e largura com movimento explicitamente ativado; controle sem sobreposição com WhatsApp; pausa desligando as animações; persistência entre páginas e preferência original por menos movimento preservada até a escolha explícita.
