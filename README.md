@@ -6,11 +6,11 @@ Vitrine comercial em React e Vite com a identidade azul-marinho, ciano e violeta
 
 Node.js 22.13+; instalar com `npm ci`. Comandos: `npm run dev`, `npm run build`, `npm run validate`, `npm run preview`.
 
-O build gera HTML e metadados para a página inicial, 16 modelos e uma página 404. A saída em `dist/` preserva a integração Vercel do repositório. O artefato opcional do Sites fica em `dist/server` e `dist/client`; sua presença não significa que houve publicação no Sites. A origem dos metadados segue `SITE_ORIGIN`, `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` ou o endereço principal, nessa ordem.
+O build gera HTML e metadados para a página inicial, 24 modelos e uma página 404. A saída em `dist/` preserva a integração Vercel do repositório. O artefato opcional do Sites fica em `dist/server` e `dist/client`; sua presença não significa que houve publicação no Sites. A origem dos metadados segue `SITE_ORIGIN`, `VERCEL_PROJECT_PRODUCTION_URL`, `VERCEL_URL` ou o endereço principal, nessa ordem.
 
 ## Conteúdo
 
-- `src/models.js`, `src/more-models.js`, `src/profiles.js`: 16 marcas fictícias, textos e referências visuais.
+- `src/models.js`, `src/more-models.js`, `src/profiles.js`: 24 marcas fictícias, textos e referências visuais.
 - `src/App.jsx`: vitrine, filtros e resumo comercial.
 - `src/ProfessionalDemo.jsx`: páginas com 11 seções, navegação móvel, serviços interativos, galerias, artigos, FAQ e simulação de solicitação.
 - `src/dark.css`: identidade da agência e efeitos. `src/professional.css`: estilos distintos dos modelos e adaptações de tela.
@@ -41,3 +41,6 @@ Verificação desta revisão: 51 combinações de página e largura com moviment
 
 
 O botão flutuante usa a imagem transparente de WhatsApp fornecida pelo proprietário, em todas as 17 páginas, mantendo o destino 5562991735288. O controle de pausar/ativar efeitos e seus estilos foram removidos.
+
+
+A galeria agora reúne 24 demonstrações. Os oito modelos empresariais adicionais ficam em `src/business-models.js` e usam `BusinessDemo.jsx`: construção, energia solar, hotelaria, eventos, tecnologia, logística, moda e limpeza. Cada um tem direção visual, interação temática, conteúdo comercial, imagens responsivas e CTA para a Soluções Digitais.
