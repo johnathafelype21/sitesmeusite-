@@ -1,3 +1,4 @@
+import { moreModels } from './more-models.js'
 export const categories = ['Todos', 'Odontologia', 'Advocacia', 'Imobiliário', 'Saúde & bem-estar', 'Criativos', 'Negócios']
 
 export const models = [
@@ -15,6 +16,7 @@ export const models = [
   { slug: 'ink-prime', brand: 'INK PRIME', name: 'Ink Prime Studio', category: 'Criativos', profession: 'Tatuadores', theme: 'tattoo', kicker: 'ARTE QUE VIVE COM VOCÊ', headline: 'Sua história. Traço por traço.', description: 'Criação autoral, expressão e identidade. Uma experiência artística que começa na conversa.', image: 'tatuagem', photo: '1513078094721-e7b6e0394a6a', alt: 'Artista trabalhando em uma tatuagem dentro de um estúdio', tags: ['Autoral', 'Urbano', 'Dark'], cta: 'Explore os estilos', services: [['Fine line', 'Traços delicados em composições cheias de significado.'], ['Blackwork', 'Contrastes e formas em projetos de presença marcante.'], ['Projetos autorais', 'Uma criação desenvolvida a partir da sua ideia.']], detail: 'Arte com identidade, do primeiro esboço ao último traço.', about: 'Um estúdio fictício de presença forte e abordagem autoral. Os estilos e o processo criativo ganham espaço em uma navegação simples, visual e direta.' },
 ]
 
+models.push(...moreModels)
 export const imagePath = (model, small = false) => `/images/${model.image}${small ? '-small' : ''}.webp`
 export const findModel = slug => models.find(model => model.slug === slug)
 export const legacySlugs = { 'lumina-odontologia': 'clinica-oralis', 'advocacia-almeida-vasconcelos': 'albuquerque-rocha', 'prime-imoveis-urbanos': 'prime-urban', 'espaco-essencia-terapias': 'essencia-terapias', 'brasa-e-sabor': 'brasa-nobre', 'bellevie-estetica': 'lumiere-hair', 'atlas-consultoria': 'nova-gestao', 'clinica-vitae': 'clinica-oralis', 'nova-central-utilidades': 'nova-gestao', 'elite-solucoes-tecnicas': 'nova-gestao' }

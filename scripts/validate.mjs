@@ -40,4 +40,4 @@ for (const model of models) for (const small of [true, false]) {
   assert.equal(bytes.toString('ascii', 0, 4), 'RIFF')
   assert.equal(bytes.toString('ascii', 8, 12), 'WEBP')
 }
-console.log('PASS: 13 routes, all model metadata, 24 WebP assets, in-page anchors, legacy redirects, HEAD/404/405 responses, trusted origin and asset routing.')
+console.log(`PASS: ${routes.length} routes, all model metadata, ${models.length*2} model WebP assets, in-page anchors, legacy redirects, HEAD/404/405 responses, trusted origin and asset routing.`)
