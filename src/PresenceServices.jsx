@@ -46,7 +46,7 @@ export default function PresenceServices() {
     </div></div>
 
     <div className="ai-showcase">
-      <div className="ai-showcase-copy"><span><i /> IMAGENS CRIADAS PARA A SUA ÁREA</span><h2>Seu cliente precisa ver <em>presença.</em></h2><p>Ensaios conceituais com IA para apresentar você e seu trabalho com uma direção visual forte.</p></div>
+      <div className="ai-showcase-copy"><span><i /> IMAGENS CRIADAS PARA A SUA ÁREA</span><h2>Seu cliente precisa ver <em>presença.</em></h2><p>Veja cada uma das 20 possibilidades. A imagem principal muda automaticamente e pode ser navegada pelas setas, sempre inteira e sem cortes.</p></div>
       <ImageStreamCorridor images={aiPortraits} />
       <div className="ai-showcase-bottom"><span className="ai-disclosure">Imagens demonstrativas geradas por inteligência artificial</span><a href={whatsapp('Olá! Quero saber como funciona o ensaio fotográfico profissional com inteligência artificial para a minha área.')} target="_blank" rel="noopener noreferrer">Quero criar minhas imagens <ArrowUpRight size={18} /></a></div>
     </div>
