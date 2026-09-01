@@ -19,7 +19,7 @@ for (const path of routes) {
     assert.ok(html.includes(`name="twitter:image" content="${origin}${imagePath(model)}"`), `model X image: ${path}`)
     assert.ok(!html.includes('content="' + origin + '/og.png"'), `no inherited home image: ${path}`)
   } else assert.ok(html.includes(`property="og:image" content="${origin}/og.png"`))
-  for (const match of html.matchAll(/src="(\/images\/[^"?]+)"/g)) await access(`dist${match[1]}`)
+  for (const match of html.matchAll(/src="(\/(?:images|ai-portraits)\/[^"?]+)"/g)) await access(`dist${match[1]}`)
   for (const match of html.matchAll(/href="#([^"]+)"/g)) assert.ok(html.includes(`id="${match[1]}"`), `anchor ${match[1]} on ${path}`)
   assert.equal((await worker.fetch(new Request(origin + path, { method: 'HEAD' }), {})).status, 200)
 }
