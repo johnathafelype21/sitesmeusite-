@@ -45,10 +45,11 @@ export default function PresenceServices() {
       <div className="presence-cta reveal"><div><Sparkles size={21} /><p><strong>Não precisa contratar tudo de uma vez.</strong><br />Montamos uma proposta com o que seu negócio realmente precisa agora.</p></div><a className="button button-dark glow-cta" href={whatsapp('Olá! Quero uma proposta para organizar minha presença digital. Tenho interesse em site, identidade visual, Perfil da Empresa no Google e/ou ensaio fotográfico com IA.')} target="_blank" rel="noopener noreferrer">Quero montar meu pacote <ArrowUpRight size={18} /></a></div>
     </div></div>
 
-    <div className="ai-showcase"><ImageStreamCorridor images={aiPortraits}>
-      <div className="ai-showcase-copy"><span><i /> IMAGENS CRIADAS PARA A SUA ÁREA</span><h2>Seu cliente precisa<br />ver <em>presença.</em></h2><p>Ensaios conceituais com IA para apresentar você e seu trabalho com uma direção visual forte.</p></div>
+    <div className="ai-showcase">
+      <div className="ai-showcase-copy"><span><i /> IMAGENS CRIADAS PARA A SUA ÁREA</span><h2>Seu cliente precisa ver <em>presença.</em></h2><p>Ensaios conceituais com IA para apresentar você e seu trabalho com uma direção visual forte.</p></div>
+      <ImageStreamCorridor images={aiPortraits} />
       <div className="ai-showcase-bottom"><span className="ai-disclosure">Imagens demonstrativas geradas por inteligência artificial</span><a href={whatsapp('Olá! Quero saber como funciona o ensaio fotográfico profissional com inteligência artificial para a minha área.')} target="_blank" rel="noopener noreferrer">Quero criar minhas imagens <ArrowUpRight size={18} /></a></div>
-    </ImageStreamCorridor></div>
+    </div>
 
     <div className="profession-cloud"><div className="container"><span className="profession-cloud-label">20 DIREÇÕES VISUAIS. UMA PARA CADA HISTÓRIA.</span><div>{aiPortraits.map(item => <span key={item.profession}>{item.profession}</span>)}</div><p>As imagens acima são exemplos conceituais. Projetos personalizados usam referências fornecidas e autorizadas pelo cliente, com uma direção própria para sua marca.</p></div></div>
   </section>
