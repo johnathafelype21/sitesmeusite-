@@ -2,11 +2,11 @@ import { ArrowUpRight, Check, ShieldCheck, MessageCircle, LayoutTemplate, MouseP
 import { whatsapp, cnpj } from './brand'
 
 export function ConversionSection() {
- return <section className="conversion-section section-pad"><div className="container"><div className="section-top"><div><span className="section-label">SEU SITE PRECISA DAR O PRÓXIMO PASSO</span><h2>Ser visto é o começo.<br/><em>Ser escolhido é o objetivo.</em></h2></div><p>Quando alguém procura seu serviço, cada detalhe ajuda a decidir: continuar procurando ou conversar com você.</p></div><div className="conversion-grid">{[
- ['01','Seu valor, sem deixar dúvidas.','Apresente o que você faz, para quem é e por que vale a pena conhecer seu trabalho. Uma mensagem clara ajuda o cliente a perceber seu diferencial.'],
- ['02','Confiança antes da conversa.','Sua identidade, seus serviços e suas informações reunidos em uma experiência profissional. Dê ao visitante razões concretas para dar o próximo passo.'],
- ['03','Menos obstáculos para chamar.','Botões de orçamento e WhatsApp no lugar certo. O visitante encontra o caminho até você sem precisar procurar como entrar em contato.']
- ].map(([n,title,text])=><article className="spotlight-card" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div><div className="conversion-bottom"><p><strong>Seu negócio já tem valor.</strong> Vamos fazer a sua presença digital mostrar isso?</p><a className="button button-dark glow-cta" href={whatsapp('Olá! Quero um site que apresente melhor meu negócio. Podemos conversar sobre um orçamento?')} target="_blank" rel="noopener noreferrer">Quero um orçamento para meu site <ArrowUpRight size={18}/></a></div></div></section>
+ return <section className="conversion-section section-pad"><div className="container"><div className="section-top"><div><span className="section-label">UM SITE PRECISA TRABALHAR PELO SEU NEGÓCIO</span><h2>Atenção sem ação é vaidade.<br/><em>Seu objetivo é receber contatos.</em></h2></div><p>Design chama o olhar. Estratégia mantém o interesse, responde objeções e conduz a pessoa até o pedido de orçamento.</p></div><div className="conversion-grid">{[
+ ['01','Diga por que escolher você.','Seu cliente não deve adivinhar seu diferencial. Apresente sua solução, seu método e o valor que torna sua empresa a escolha certa.'],
+ ['02','Elimine a dúvida que trava o contato.','Serviços, processo e respostas bem organizados reduzem insegurança e preparam uma conversa muito mais qualificada.'],
+ ['03','Peça a ação no momento certo.','WhatsApp e orçamento aparecem quando o visitante já entendeu o valor. Menos distração, mais caminho para conversar.']
+ ].map(([n,title,text])=><article className="spotlight-card" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div><div className="conversion-bottom"><p><strong>Você já investiu no seu negócio.</strong> Agora sua presença digital precisa estar à altura dele.</p><a className="button button-dark glow-cta" href={whatsapp('Olá! Quero um site profissional pensado para transformar visitas em pedidos de orçamento.')} target="_blank" rel="noopener noreferrer">Quero transformar visitas em contatos <ArrowUpRight size={18}/></a></div></div></section>
 }
 
 export function OfferSection() {

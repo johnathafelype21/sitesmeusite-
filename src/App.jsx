@@ -10,6 +10,7 @@ import { whatsapp, instagram, cnpj } from './brand'
 import { categories, models, imagePath, findModel, legacySlugs } from './models'
 
 const iconMap = { dental: Smile, law: ShieldCheck, therapy: Leaf, property: MapPin }
+const featuredModelSlugs = ['albuquerque-rocha', 'clinica-oralis', 'ink-prime', 'essencia-terapias', 'prime-urban']
 const faqs = [
   ['O site vai ficar com a identidade da minha marca?', 'Sim. Os modelos são um ponto de partida: cores, fotos, textos, serviços e organização podem ser adaptados ao seu negócio. Podemos também criar uma direção visual do zero.'],
   ['Funciona bem no celular?', 'Os layouts se reorganizam para celulares, tablets e computadores, com navegação por toque e imagens em tamanhos adequados a cada tela.'],
@@ -48,11 +49,11 @@ function Header() {
 }
 function Hero() {
   return <section className="hero" id="inicio"><AmbientEffects /><VisualAtmosphere /><div className="container hero-grid">
-    <div className="hero-copy"><div className="eyebrow"><span className="status-dot" /> SITES PROFISSIONAIS PARA GERAR NOVAS CONVERSAS</div>
-      <h1>Mostre seu valor.<br />Desperte confiança.<br /><span className="highlight">Convide a chamar.<Sparkles size={26} /></span></h1>
-      <p>Um site bonito chama atenção. Um site bem pensado apresenta seu diferencial e facilita o pedido de orçamento. Vamos criar os dois para o seu negócio.</p>
-      <div className="hero-actions"><a className="button button-dark glow-cta" href={whatsapp("Olá! Quero solicitar um orçamento para criar meu site.")} target="_blank" rel="noopener noreferrer">Quero um orçamento <ArrowUpRight size={19} /></a><a className="text-link" href="#modelos">Veja os modelos <ArrowRight size={17} /></a></div>
-      <div className="hero-trust"><span><Check size={15} /> Sua identidade, de verdade</span><span><Check size={15} /> Orçamento sem compromisso</span></div>
+    <div className="hero-copy"><div className="eyebrow"><span className="status-dot" /> SEU CLIENTE ESTÁ COMPARANDO AGORA</div>
+      <h1>Pare de perder clientes<br />para quem só <span className="highlight">parece melhor.<Sparkles size={26} /></span></h1>
+      <p>Quando seu site transmite confiança, explica seu valor e facilita o contato, você deixa de ser apenas mais uma opção. Transforme pesquisas no Google em conversas de orçamento.</p>
+      <div className="hero-actions"><a className="button button-dark glow-cta" href={whatsapp("Olá! Quero parar de perder oportunidades e criar um site profissional para meu negócio.")} target="_blank" rel="noopener noreferrer">Quero vender melhor no digital <ArrowUpRight size={19} /></a><a className="text-link" href="#modelos">Ver 24 modelos completos <ArrowRight size={17} /></a></div>
+      <div className="hero-trust"><span><Check size={15} /> Projeto com a sua identidade</span><span><Check size={15} /> Orçamento sem compromisso</span></div>
     </div>
     <div className="hero-showcase" aria-label="Exemplos de sites para diferentes profissões"><div className="showcase-orbit orbit-one" /><div className="showcase-orbit orbit-two" />
       <a href="/modelos/prime-urban" className="hero-window hero-property" aria-label="Explorar modelo Prime Urban Imóveis"><ModelPreview model={models[2]} hero /></a>
@@ -64,12 +65,26 @@ function Hero() {
     </div>
   </div></section>
 }
+function UrgencySection(){
+  const points=[['01','Seu concorrente não precisa ser melhor.','Se ele apresenta o serviço com mais clareza, pode conquistar o contato antes de você.'],['02','Instagram não é sua vitrine completa.','O cliente quer entender serviços, diferenciais e próximos passos sem procurar informações espalhadas.'],['03','A primeira impressão já está vendendo — ou afastando.','Um site profissional trabalha sua credibilidade antes mesmo da primeira mensagem.']]
+  return <section className="urgency-section section-pad"><div className="urgency-beams" aria-hidden="true"><i/><i/><i/><span/></div><div className="container"><span className="section-label"><span/> CADA PESQUISA É UMA DECISÃO</span><div className="urgency-heading"><h2>Enquanto você adia,<br/><em>o cliente escolhe outra empresa.</em></h2><p>Quem procura seu serviço no Google já tem uma necessidade. Se não entende rapidamente por que confiar em você, volta para os resultados e continua comparando.</p></div><div className="urgency-grid">{points.map(([n,title,text])=><article className="spotlight-card" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}</div><div className="urgency-action"><p><strong>Seu negócio pode ser excelente.</strong> Mas o cliente só consegue escolher o valor que ele percebe.</p><a className="button button-dark glow-cta" href={whatsapp('Olá! Quero transformar meu site em uma ferramenta para gerar orçamentos.')} target="_blank" rel="noopener noreferrer">Quero corrigir isso agora <ArrowUpRight size={18}/></a></div></div><div className="urgency-marquee" aria-hidden="true"><span>CONFIANÇA • CLAREZA • PRESENÇA • CONTATO • CONFIANÇA • CLAREZA • PRESENÇA • CONTATO • </span></div></section>
+}
+function SeoServices(){return <section className="seo-services section-pad" aria-labelledby="seo-services-title"><div className="container seo-services-grid"><div><span className="section-label"><span/> CRIAÇÃO DE SITES PROFISSIONAIS</span><h2 id="seo-services-title">Um site bonito para impressionar.<br/><em>Uma estratégia clara para converter.</em></h2><p>Criamos sites responsivos, páginas institucionais, landing pages para campanhas e portfólios digitais para empresas e profissionais. Cada projeto combina identidade visual, copy comercial, navegação simples e contato direto pelo WhatsApp.</p><a className="text-link" href="#solucoes">Conhecer os formatos de site <ArrowRight size={17}/></a></div><div className="seo-keywords"><article><strong>Sites institucionais</strong><span>Credibilidade, serviços e diferenciais organizados.</span></article><article><strong>Landing pages para Google Ads</strong><span>Mensagem alinhada à campanha e chamada para orçamento.</span></article><article><strong>Sites responsivos</strong><span>Experiência fluida no celular, tablet e computador.</span></article><article><strong>Portfólios e catálogos</strong><span>Projetos e produtos apresentados para despertar interesse.</span></article></div></div></section>}
 function Gallery() {
   const galleryRef=useRef(null)
   useSpotlight(galleryRef)
   const [category, setCategory] = useState('Todos')
   const [expanded, setExpanded] = useState(false)
-  const matches = models.filter(model => category === 'Todos' || (category === 'Novos modelos' ? model.business : model.category === category))
+  const matches = models
+    .filter(model => category === 'Todos' || (category === 'Novos modelos' ? model.business : model.category === category))
+    .toSorted((a, b) => {
+      const aPosition = featuredModelSlugs.indexOf(a.slug)
+      const bPosition = featuredModelSlugs.indexOf(b.slug)
+      if (aPosition < 0 && bPosition < 0) return 0
+      if (aPosition < 0) return 1
+      if (bPosition < 0) return -1
+      return aPosition - bPosition
+    })
   const visible = category === 'Todos' && !expanded ? matches.slice(0, 8) : matches
   return <section className="gallery-section section-pad" id="modelos" ref={galleryRef}><div className="container">
     <div className="section-top reveal"><div><span className="section-label"><span /> FEITO PARA A SUA PROFISSÃO</span><h2>Seu próximo site.<br /> Com a sua <em>personalidade.</em></h2></div><p>Explore experiências completas, com estruturas e interações próprias. Escolha uma referência e peça uma proposta para a sua marca.</p></div>
@@ -79,7 +94,7 @@ function Gallery() {
     <div className="portfolio-grid">{visible.map((model, index) => <article className={`project-card spotlight-card card-${model.theme}`} key={model.slug} style={{ '--card-index': index }}>
       <a href={`/modelos/${model.slug}`} className="project-visual" aria-label={`Explorar modelo ${model.name}`}><span className="project-type">{model.profession}</span><div className="project-browser"><ModelPreview model={model} /></div><span className="project-open"><span>Abrir site completo</span><ArrowUpRight size={22} /></span></a>
       <div className="project-info"><div><span className="project-category">{model.category}</span><h3><a href={`/modelos/${model.slug}`}>{model.name}</a></h3></div><a className="project-arrow" href={`/modelos/${model.slug}`} aria-label={`Abrir ${model.name}`}><ArrowUpRight size={21} /></a></div>
-      <div className="project-tags">{model.business && <span className="new-model-label">NOVO</span>}{model.tags.map(tag => <span key={tag}>{tag}</span>)}<span className="responsive-tag"><Smartphone size={12} /> Responsivo</span></div>
+      <div className="project-tags">{featuredModelSlugs.includes(model.slug) && <span className="featured-model-label">DESTAQUE</span>}{model.business && <span className="new-model-label">NOVO</span>}{model.tags.map(tag => <span key={tag}>{tag}</span>)}<span className="responsive-tag"><Smartphone size={12} /> Responsivo</span></div>
     </article>)}</div>
     {category === 'Todos' && <div className="gallery-more"><button className="button button-outline" onClick={() => setExpanded(!expanded)}>{expanded ? 'Mostrar menos modelos' : `Explore os ${models.length} modelos`}{expanded ? <Minus size={17} /> : <Plus size={17} />}</button></div>}
     <p className="demo-note">Projetos conceituais e marcas fictícias, criados para inspirar o seu próximo site.</p>
@@ -144,7 +159,7 @@ function Home() { const pageRef=useRef(null); usePageMotion(pageRef);
   useReveal()
   return <div ref={pageRef}><ReadingProgress /><a href="#conteudo" className="skip-link">Pular para o conteúdo</a><Header /><main id="conteudo"><Hero />
     <div className="profession-strip"><div className="container"><span>PARA QUEM FAZ<br /><b>A DIFERENÇA.</b></span><div><Smile size={19} /> Dentistas</div><div><ShieldCheck size={19} /> Advogados</div><div><MapPin size={19} /> Corretores</div><div><Leaf size={19} /> Terapeutas</div><div><Layers3 size={19} /> E para você.</div></div></div>
-    <ConversionSection /><Gallery /><OfferSection /><Benefits /><Process />
+    <UrgencySection /><ConversionSection /><Gallery /><SeoServices /><OfferSection /><Benefits /><Process />
     <section className="faq-section section-pad"><div className="container faq-grid"><div className="reveal"><span className="section-label"><span /> PODE PERGUNTAR</span><h2>Vamos deixar<br />tudo <em>claro.</em></h2><p>Algumas respostas antes<br />do nosso primeiro papo.</p></div><FAQ /></div></section>
     <section className="contact-section" id="contato"><div className="container"><div className="contact-callout reveal"><span className="eyebrow"><span className="status-dot" /> O PRÓXIMO PROJETO PODE SER O SEU</span><h2>Seu cliente precisa entender<br />por que escolher <em>você.</em></h2><p>Conte o que você faz. Vamos pensar em um site que apresente seu valor, responda às dúvidas do seu público e facilite o contato.</p><a className="button button-dark" href="#seu-projeto">Quero uma proposta para meu negócio <ArrowUpRight size={20} /></a><span className="contact-spark spark-one" aria-hidden="true">✳</span><span className="contact-spark spark-two" aria-hidden="true">✳</span></div><div id="seu-projeto"><BriefingForm /></div></div></section>
   </main><Footer /><WhatsAppButton /><MotionPreferences /></div>
