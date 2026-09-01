@@ -69,7 +69,7 @@ export default function ImageStreamCorridor({ images, cards = 8, speed = 28, axi
     {featured && <figure className="stream-featured">
       <div className="stream-featured-frame"><img src={featured.src} alt={`Retrato profissional conceitual para ${featured.profession}`} decoding="async" /></div>
       <figcaption><span><b>{String(featuredIndex + 1).padStart(2, '0')}</b> / {String(images.length).padStart(2, '0')}</span><strong>{featured.profession}</strong></figcaption>
-      <div className="stream-controls"><button type="button" onClick={() => select(-1)} aria-label="Ver profissão anterior"><ArrowLeft size={18} /></button><button type="button" onClick={() => select(1)} aria-label="Ver próxima profissão"><ArrowRight size={18} /></button></div>
     </figure>}
+    {featured && <div className="stream-controls"><button type="button" onClick={() => select(-1)} aria-label="Ver profissão anterior"><ArrowLeft size={18} /></button><button type="button" onClick={() => select(1)} aria-label="Ver próxima profissão"><ArrowRight size={18} /></button></div>}
   </div>
 }
