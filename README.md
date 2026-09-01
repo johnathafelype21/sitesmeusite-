@@ -44,3 +44,5 @@ O botão flutuante usa a imagem transparente de WhatsApp fornecida pelo propriet
 
 
 A galeria agora reúne 24 demonstrações. Os oito modelos empresariais adicionais ficam em `src/business-models.js` e usam `BusinessDemo.jsx`: construção, energia solar, hotelaria, eventos, tecnologia, logística, moda e limpeza. Cada um tem direção visual, interação temática, conteúdo comercial, imagens responsivas e CTA para a Soluções Digitais.
+
+Revisão final para aquisição: os destaques da galeria começam por advocacia, odontologia, tatuagem, terapia e imóveis. A página principal ganhou copy orientada à perda de oportunidades, sem alegações artificiais de escassez, além de duas seções comerciais e efeitos exclusivos. O SEO inclui títulos e descrições por página, canonical, robots, sitemap e JSON-LD de Organization, WebSite, Service, FAQ e BreadcrumbList.
