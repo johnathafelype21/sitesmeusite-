@@ -3,6 +3,7 @@ import { MotionPreferences, VisualAtmosphere } from './VisualEffects'
 import { ConversionSection, OfferSection } from './Conversion'
 import { usePageMotion, ReadingProgress } from './Motion'
 import ProfessionalDemo from './ProfessionalDemo'
+import PresenceServices from './PresenceServices'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, ArrowRight, ArrowLeft, Check, Plus, Minus, Menu, X, Sparkles, Smartphone, Monitor, Layers3, MousePointer2, Palette, Zap, Heart, MoveUpRight, Download, Copy, CheckCheck, Leaf, ShieldCheck, Smile, MapPin, Camera as Instagram, MessageCircle } from 'lucide-react'
 import { AmbientEffects, WhatsAppButton, useSpotlight } from './Effects'
@@ -17,6 +18,9 @@ const faqs = [
   ['Posso escolher um modelo de outra profissão?', 'Pode! Escolha pelo segmento ou pelo estilo que mais combina com você. A estrutura e o conteúdo são personalizados para a sua área de atuação.'],
   ['É possível colocar WhatsApp e agendamento?', 'Sim, essas integrações podem fazer parte do seu projeto. O número oficial e a ferramenta de agenda são definidos durante a personalização. Os exemplos desta vitrine não fazem agendamentos reais.'],
   ['Qual é o prazo e o valor do projeto?', 'Depende das páginas, do conteúdo e das funcionalidades escolhidas. Prepare um resumo do que você precisa na seção “Seu projeto” para definir o escopo e solicitar uma proposta personalizada.'],
+  ['Vocês também criam logomarca e identidade visual?', 'Sim. Temos pacotes de identidade visual com conceito de marca, logomarca, paleta de cores, tipografia e aplicações para o ambiente digital.'],
+  ['Vocês fazem o cadastro no Google Meu Negócio?', 'Ajudamos a criar ou organizar o Perfil da Empresa no Google, antigo Google Meu Negócio, com categorias, contato, horários, imagens e apoio na verificação. A elegibilidade, o método de verificação e a aprovação são definidos pelo Google.'],
+  ['Como funciona o ensaio fotográfico com inteligência artificial?', 'Criamos cenas conceituais ligadas à sua profissão a partir de referências fornecidas e autorizadas por você. As imagens são preparadas para uso no site e nas redes, sempre identificadas como conteúdo produzido com IA quando necessário.'],
 ]
 
 export function Brand() {
@@ -41,10 +45,10 @@ function Header() {
   const [open, setOpen] = useState(false)
   useEffect(() => { const close = e => { if (e.key === 'Escape') setOpen(false) }; document.addEventListener('keydown', close); return () => document.removeEventListener('keydown', close) }, [])
   return <header className="site-header"><div className="container header-inner"><a href="/" aria-label="Soluções Digitais — início"><Brand /></a>
-    <nav className="desktop-nav" aria-label="Navegação principal"><a href="#modelos">Modelos de sites <span>{models.length}</span></a><a href="#diferenciais">Por que a Soluções Digitais?</a><a href="#processo">Como funciona</a></nav>
+    <nav className="desktop-nav" aria-label="Navegação principal"><a href="#modelos">Modelos de sites <span>{models.length}</span></a><a href="#presenca-digital">Mais serviços</a><a href="#processo">Como funciona</a></nav>
     <a className="button button-dark header-cta" href="#contato">Solicitar orçamento <ArrowUpRight size={17} /></a>
     <button className="menu-toggle" aria-label={open ? 'Fechar menu' : 'Abrir menu'} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-    {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Navegação no celular">{[['#modelos', 'Modelos de sites'], ['#diferenciais', 'Por que a Soluções Digitais?'], ['#processo', 'Como funciona'], ['#contato', 'Vamos criar seu site']].map(([href, title]) => <a href={href} key={href} onClick={() => setOpen(false)}>{title}<ArrowUpRight size={18} /></a>)}</nav>}
+    {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Navegação no celular">{[['#modelos', 'Modelos de sites'], ['#presenca-digital', 'Identidade, Google e fotos com IA'], ['#diferenciais', 'Por que a Soluções Digitais?'], ['#processo', 'Como funciona'], ['#contato', 'Vamos criar seu site']].map(([href, title]) => <a href={href} key={href} onClick={() => setOpen(false)}>{title}<ArrowUpRight size={18} /></a>)}</nav>}
   </div></header>
 }
 function Hero() {
@@ -159,7 +163,7 @@ function Home() { const pageRef=useRef(null); usePageMotion(pageRef);
   useReveal()
   return <div ref={pageRef}><ReadingProgress /><a href="#conteudo" className="skip-link">Pular para o conteúdo</a><Header /><main id="conteudo"><Hero />
     <div className="profession-strip"><div className="container"><span>PARA QUEM FAZ<br /><b>A DIFERENÇA.</b></span><div><Smile size={19} /> Dentistas</div><div><ShieldCheck size={19} /> Advogados</div><div><MapPin size={19} /> Corretores</div><div><Leaf size={19} /> Terapeutas</div><div><Layers3 size={19} /> E para você.</div></div></div>
-    <UrgencySection /><ConversionSection /><Gallery /><SeoServices /><OfferSection /><Benefits /><Process />
+    <UrgencySection /><ConversionSection /><Gallery /><SeoServices /><PresenceServices /><OfferSection /><Benefits /><Process />
     <section className="faq-section section-pad"><div className="container faq-grid"><div className="reveal"><span className="section-label"><span /> PODE PERGUNTAR</span><h2>Vamos deixar<br />tudo <em>claro.</em></h2><p>Algumas respostas antes<br />do nosso primeiro papo.</p></div><FAQ /></div></section>
     <section className="contact-section" id="contato"><div className="container"><div className="contact-callout reveal"><span className="eyebrow"><span className="status-dot" /> O PRÓXIMO PROJETO PODE SER O SEU</span><h2>Seu cliente precisa entender<br />por que escolher <em>você.</em></h2><p>Conte o que você faz. Vamos pensar em um site que apresente seu valor, responda às dúvidas do seu público e facilite o contato.</p><a className="button button-dark" href="#seu-projeto">Quero uma proposta para meu negócio <ArrowUpRight size={20} /></a><span className="contact-spark spark-one" aria-hidden="true">✳</span><span className="contact-spark spark-two" aria-hidden="true">✳</span></div><div id="seu-projeto"><BriefingForm /></div></div></section>
   </main><Footer /><WhatsAppButton /><MotionPreferences /></div>
